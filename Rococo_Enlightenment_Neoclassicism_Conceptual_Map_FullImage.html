@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art Appreciation Conceptual Map: Rococo, Enlightenment &amp; Neoclassicism</title>
+<style>
+  :root {
+    --bg-color: #f8f6f0;
+    --card-bg: #ffffff;
+    --primary: #2c3e50;
+    --accent-gold: #b8860b;
+    --accent-gold-light: #fdf8e8;
+    --accent-rose: #a95c68;
+    --accent-rose-light: #fdf2f4;
+    --accent-teal: #1f618d;
+    --accent-teal-light: #ebf5fb;
+    --accent-slate: #34495e;
+    --accent-slate-light: #ebedef;
+    --border-color: #d5d8dc;
+    --text-main: #2c3e50;
+    --text-muted: #566573;
+  }
+
+  * {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.5;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  header {
+    background: linear-gradient(135deg, #1b2631, #2c3e50);
+    color: #ffffff;
+    padding: 28px 32px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    border-bottom: 5px solid var(--accent-gold);
+  }
+
+  header h1 {
+    margin: 0 0 8px 0;
+    font-size: 1.9rem;
+    letter-spacing: 0.5px;
+  }
+
+  header p {
+    margin: 0;
+    color: #d5d8dc;
+    font-size: 1rem;
+  }
+
+  .student-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    background: var(--card-bg);
+    padding: 16px 24px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 28px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .meta-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 220px;
+  }
+
+  .meta-group label {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 0.9rem;
+  }
+
+  input[type="text"], textarea, select {
+    border: 1.5px solid #aeb6bf;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.92rem;
+    background-color: #fcfcfc;
+    color: #1b2631;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  input[type="text"]:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.18);
+    background-color: #ffffff;
+  }
+
+  .inline-input {
+    width: 165px;
+    display: inline-block;
+    margin: 2px 4px;
+    font-weight: 600;
+    color: #1a5276;
+  }
+
+  .wide-input {
+    width: 100%;
+    margin-top: 6px;
+  }
+
+  .btn-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.88rem;
+    transition: background 0.2s;
+  }
+
+  button:hover {
+    background-color: #1a252f;
+  }
+
+  button.gold-btn {
+    background-color: var(--accent-gold);
+  }
+
+  button.gold-btn:hover {
+    background-color: #9a7009;
+  }
+
+  .map-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .node {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    width: 100%;
+    position: relative;
+  }
+
+  .node-root {
+    border: 3px solid var(--accent-gold);
+    background: var(--accent-gold-light);
+    text-align: center;
+    max-width: 900px;
+  }
+
+  .node-rose {
+    border-top: 5px solid var(--accent-rose);
+  }
+
+  .node-teal {
+    border-top: 5px solid var(--accent-teal);
+  }
+
+  .node-slate {
+    border-top: 5px solid var(--accent-slate);
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 8px;
+  }
+
+  .badge-gold { background: var(--accent-gold); color: #fff; }
+  .badge-rose { background: var(--accent-rose); color: #fff; }
+  .badge-teal { background: var(--accent-teal); color: #fff; }
+  .badge-slate { background: var(--accent-slate); color: #fff; }
+
+  .node h2 {
+    margin: 4px 0 8px 0;
+    font-size: 1.3rem;
+    color: var(--primary);
+  }
+
+  .node h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.08rem;
+    color: var(--primary);
+  }
+
+  .arrow-down {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 8px 0;
+    color: var(--accent-gold);
+    font-weight: bold;
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+
+  .arrow-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    background: var(--bg-color);
+    padding: 2px 10px;
+    border-radius: 4px;
+    margin-bottom: 2px;
+  }
+
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 18px;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(430px, 1fr));
+    gap: 24px;
+    width: 100%;
+  }
+
+  .artwork-preview {
+    margin-top: 14px;
+    background: #f4f6f7;
+    border: 1px solid #d5d8dc;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .artwork-preview img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.16);
+    display: block;
+    margin: 0 auto 10px auto;
+    background-color: #e5e8e8;
+  }
+
+  .artwork-caption {
+    font-size: 0.85rem;
+    color: var(--text-main);
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .artwork-subcaption {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .hint-box {
+    display: none;
+    background: #eafaf1;
+    border-left: 4px solid #27ae60;
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin-top: 16px;
+    font-size: 0.9rem;
+  }
+
+  @media print {
+    body { background: #ffffff; padding: 0; }
+    .btn-bar { display: none; }
+    .node { box-shadow: none; break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Conceptual Map: Rococo, Enlightenment &amp; Neoclassicism</h1>
+    <p>ARTS 1301 Art Appreciation | Unit 3: Aristocratic Extravagance, The Age of Reason &amp; Civic Revival</p>
+  </header>
+
+  <div class="student-meta">
+    <div class="meta-group">
+      <label for="studentName">Student Name:</label>
+      <input type="text" id="studentName" placeholder="Enter your full name">
+    </div>
+    <div class="meta-group">
+      <label for="courseDate">Date:</label>
+      <input type="text" id="courseDate" placeholder="MM/DD/YYYY">
+    </div>
+    <div class="btn-bar">
+      <button type="button" onclick="toggleWordBank()">Toggle Word Bank</button>
+      <button type="button" class="gold-btn" onclick="window.print()">Print / Save PDF</button>
+    </div>
+  </div>
+
+  <div id="wordBank" class="hint-box" style="margin-bottom: 22px;">
+    <strong>Concept Map Word Bank:</strong> 1700s, 1865, middle, Industrial, Reason, extravagance, whimsical, curved, pastel, Fragonard, Boucher, moral, equality, observation, Joseph Wright of Derby, Chardin, 18th, mythological, Greeks, Romans, stability, civic, Jacques Louis David, Angelica Kauffman
+  </div>
+
+  <!-- LEVEL 1: ROOT NODE -->
+  <div class="map-section">
+    <div class="node node-root">
+      <span class="badge badge-gold">Central Historical Foundation (1700s to 1865)</span>
+      <h2>Transition of Power, Industrialization &amp; The Age of Reason</h2>
+      <p>Spanning from the <input type="text" class="inline-input" style="width:95px;" placeholder="Start century"> to the 1800s (specifically <input type="text" class="inline-input" style="width:95px;" placeholder="End year">), this era witnessed a major shift of social and economic power from the wealthy aristocracy to the rising <input type="text" class="inline-input" style="width:120px;" placeholder="Social class"> class. Driven by the <input type="text" class="inline-input" style="width:130px;" placeholder="Economic shift"> Revolution and the Enlightenment (known as the Age of <input type="text" class="inline-input" style="width:110px;" placeholder="Guiding principle">), Western art transformed from aristocratic playfulness to moral inquiry and civic duty.</p>
+    </div>
+
+    <div class="arrow-down">
+      <span class="arrow-label">Begins with the lavish style of the European aristocracy</span>
+      <span>&#8595;</span>
+    </div>
+
+    <!-- LEVEL 2: THE ROCOCO PERIOD -->
+    <div class="node node-rose">
+      <div style="text-align:center; margin-bottom: 14px;">
+        <span class="badge badge-rose">Movement 1: 17th &amp; 18th Centuries</span>
+        <h2>The Rococo Period: Aristocratic Extravagance</h2>
+        <p>Popular during the 17th and 18th centuries, Rococo art celebrated the <input type="text" class="inline-input" style="width:140px;" placeholder="Core quality"> and leisure of the wealthy European ruling class.</p>
+      </div>
+
+      <div class="grid-4">
+        <div style="background:#fdfefe; padding:12px; border-radius:8px; border:1px solid #e5e7e9;">
+          <h3>1. Subject Matter</h3>
+          <p>Playful, <input type="text" class="inline-input" style="width:130px;" placeholder="Playful mood"> figures engaged in lighthearted, frivolous courtly romance and leisure.</p>
+        </div>
+        <div style="background:#fdfefe; padding:12px; border-radius:8px; border:1px solid #e5e7e9;">
+          <h3>2. Line &amp; Form</h3>
+          <p>Flowing <input type="text" class="inline-input" style="width:120px;" placeholder="Line type"> lines, S curves, and ornate organic forms inspired by shells and nature.</p>
+        </div>
+        <div style="background:#fdfefe; padding:12px; border-radius:8px; border:1px solid #e5e7e9;">
+          <h3>3. Color Palette</h3>
+          <p>Soft, airy <input type="text" class="inline-input" style="width:120px;" placeholder="Soft tones"> colors such as blush pink, baby blue, and creamy gold.</p>
+        </div>
+        <div style="background:#fdfefe; padding:12px; border-radius:8px; border:1px solid #e5e7e9;">
+          <h3>4. Brushwork</h3>
+          <p>Feathery, delicate brushstrokes that create a shimmering, dreamlike surface.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="artwork-preview" style="margin-top:0;">
+          <img src="https://raw.githubusercontent.com/angelica-martinez/ConceptualMapsArt/main/Images/The_Swing_Fragonard.jpg" alt="The Swing by Jean Honore Fragonard">
+          <div class="artwork-caption">Jean Honor&eacute; Fragonard, <em>The Swing</em> (1767)</div>
+          <div class="artwork-subcaption">Artist: <input type="text" class="inline-input" style="width:145px;" placeholder="Artist last name"> | Pastel garden tones, curving foliage, and frivolous aristocratic romance</div>
+        </div>
+        <div class="artwork-preview" style="margin-top:0;">
+          <img src="https://raw.githubusercontent.com/angelica-martinez/ConceptualMapsArt/main/Images/Madame_de_Pompadour_Boucher.jpg" alt="Portrait of Madame de Pompadour by Francois Boucher">
+          <div class="artwork-caption">Fran&ccedil;ois Boucher, <em>Portrait of Madame de Pompadour</em> (1756)</div>
+          <div class="artwork-subcaption">Artist: <input type="text" class="inline-input" style="width:145px;" placeholder="Artist last name"> | Delicate silk brushwork, pastel palette, and ruling class luxury</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow-down">
+      <span class="arrow-label">Provokes a philosophical and moral rejection</span>
+      <span>&#8595;</span>
+    </div>
+
+    <!-- LEVEL 3: THE ENLIGHTENMENT -->
+    <div class="node node-teal">
+      <div style="text-align:center; margin-bottom: 14px;">
+        <span class="badge badge-teal">Movement 2: The Age of Reason</span>
+        <h2>The Enlightenment: Rejecting Aristocratic Excess</h2>
+        <p>The Enlightenment emerged as a direct response and rejection of Rococo depictions of ruling class wealth and frivolity. Instead, Enlightenment artists sought to convey <input type="text" class="inline-input" style="width:120px;" placeholder="Ethical value"> messages through art, championing human reason, social <input type="text" class="inline-input" style="width:120px;" placeholder="Fairness">, scientific inquiry, and learning through empirical <input type="text" class="inline-input" style="width:140px;" placeholder="Direct study">.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="artwork-preview" style="margin-top:0;">
+          <img src="https://raw.githubusercontent.com/angelica-martinez/ConceptualMapsArt/main/Images/Orrery_Joseph_Wright.jpg" alt="A Philosopher Lecturing on the Orrery by Joseph Wright of Derby">
+          <div class="artwork-caption">Joseph Wright of Derby, <em>A Philosopher Lecturing on the Orrery</em> (1766)</div>
+          <div class="artwork-subcaption">Artist: <input type="text" class="inline-input" style="width:175px;" placeholder="Artist name"> | Celebrates scientific discovery and learning through direct observation</div>
+        </div>
+        <div class="artwork-preview" style="margin-top:0;">
+          <img src="https://raw.githubusercontent.com/angelica-martinez/ConceptualMapsArt/main/Images/Saying_Grace_Chardin.jpg" alt="Saying Grace by Jean Baptiste Simeon Chardin">
+          <div class="artwork-caption">Jean Baptiste Sim&eacute;on Chardin, <em>Saying Grace</em> (1740)</div>
+          <div class="artwork-subcaption">Artist: <input type="text" class="inline-input" style="width:145px;" placeholder="Artist last name"> | Rejects aristocratic luxury to honor quiet middle class virtue and moral education</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow-down">
+      <span class="arrow-label">Turns toward classical antiquity for civic order</span>
+      <span>&#8595;</span>
+    </div>
+
+    <!-- LEVEL 4: NEOCLASSICISM -->
+    <div class="node node-slate">
+      <div style="text-align:center; margin-bottom: 14px;">
+        <span class="badge badge-slate">Movement 3: Late 18th Century</span>
+        <h2>Neoclassicism: Classical Revival &amp; Civic Duty</h2>
+        <p>Becoming highly influential in the late <input type="text" class="inline-input" style="width:95px;" placeholder="Century"> century, Neoclassicism looked back to historical and <input type="text" class="inline-input" style="width:145px;" placeholder="Story type"> scenes from the ancient <input type="text" class="inline-input" style="width:110px;" placeholder="Culture 1"> and <input type="text" class="inline-input" style="width:110px;" placeholder="Culture 2">. Through crisp lines, clear architecture, and restrained emotion, Neoclassical artworks communicated messages of political <input type="text" class="inline-input" style="width:120px;" placeholder="Steadiness">, visual balance, rational order, and patriotic <input type="text" class="inline-input" style="width:110px;" placeholder="Public duty"> values.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="artwork-preview" style="margin-top:0;">
+          <img src="https://raw.githubusercontent.com/angelica-martinez/ConceptualMapsArt/main/Images/Oath_of_the_Horatii_David.jpg" alt="Oath of the Horatii by Jacques Louis David">
+          <div class="artwork-caption">Jacques Louis David, <em>Oath of the Horatii</em> (1784)</div>
+          <div class="artwork-subcaption">Artist: <input type="text" class="inline-input" style="width:165px;" placeholder="Artist name"> | Roman civic sacrifice, geometric balance, and patriotic order</div>
+        </div>
+        <div class="artwork-preview" style="margin-top:0;">
+          <img src="https://raw.githubusercontent.com/angelica-martinez/ConceptualMapsArt/main/Images/Cornelia_Pointing_Kauffman.jpg" alt="Cornelia Pointing to Her Children as Her Treasures by Angelica Kauffman">
+          <div class="artwork-caption">Angelica Kauffman, <em>Cornelia Pointing to Her Children as Her Treasures</em> (1785)</div>
+          <div class="artwork-subcaption">Artist: <input type="text" class="inline-input" style="width:165px;" placeholder="Artist name"> | Classical Roman setting teaching moral virtue over material wealth</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleWordBank() {
+    const wb = document.getElementById('wordBank');
+    wb.style.display = (wb.style.display === 'block') ? 'none' : 'block';
+  }
+</script>
+
+</body>
+</html>

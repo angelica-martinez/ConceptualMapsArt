@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art Appreciation Conceptual Map: The Renaissance to Baroque</title>
+<style>
+  :root {
+    --bg-color: #f8f6f0;
+    --card-bg: #ffffff;
+    --primary: #2c3e50;
+    --accent-gold: #b8860b;
+    --accent-gold-light: #fdf8e8;
+    --accent-teal: #1f618d;
+    --accent-teal-light: #ebf5fb;
+    --accent-burgundy: #7b241c;
+    --accent-burgundy-light: #f9ebea;
+    --accent-emerald: #1e8449;
+    --accent-emerald-light: #eafaf1;
+    --border-color: #d5d8dc;
+    --text-main: #2c3e50;
+    --text-muted: #566573;
+  }
+
+  * {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.5;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  header {
+    background: linear-gradient(135deg, #1b2631, #2c3e50);
+    color: #ffffff;
+    padding: 28px 32px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    border-bottom: 5px solid var(--accent-gold);
+  }
+
+  header h1 {
+    margin: 0 0 8px 0;
+    font-size: 1.9rem;
+    letter-spacing: 0.5px;
+  }
+
+  header p {
+    margin: 0;
+    color: #d5d8dc;
+    font-size: 1rem;
+  }
+
+  .student-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    background: var(--card-bg);
+    padding: 16px 24px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 28px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .meta-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 220px;
+  }
+
+  .meta-group label {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 0.9rem;
+  }
+
+  input[type="text"], textarea, select {
+    border: 1.5px solid #aeb6bf;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.92rem;
+    background-color: #fcfcfc;
+    color: #1b2631;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  input[type="text"]:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.18);
+    background-color: #ffffff;
+  }
+
+  .inline-input {
+    width: 165px;
+    display: inline-block;
+    margin: 2px 4px;
+    font-weight: 600;
+    color: #1a5276;
+  }
+
+  .wide-input {
+    width: 100%;
+    margin-top: 6px;
+  }
+
+  .btn-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.88rem;
+    transition: background 0.2s;
+  }
+
+  button:hover {
+    background-color: #1a252f;
+  }
+
+  button.gold-btn {
+    background-color: var(--accent-gold);
+  }
+
+  button.gold-btn:hover {
+    background-color: #9a7009;
+  }
+
+  .map-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .node {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    width: 100%;
+    position: relative;
+  }
+
+  .node-root {
+    border: 3px solid var(--accent-gold);
+    background: var(--accent-gold-light);
+    text-align: center;
+    max-width: 880px;
+  }
+
+  .node-teal {
+    border-top: 5px solid var(--accent-teal);
+  }
+
+  .node-burgundy {
+    border-top: 5px solid var(--accent-burgundy);
+  }
+
+  .node-gold {
+    border-top: 5px solid var(--accent-gold);
+  }
+
+  .node-emerald {
+    border-top: 5px solid var(--accent-emerald);
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 8px;
+  }
+
+  .badge-gold { background: var(--accent-gold); color: #fff; }
+  .badge-teal { background: var(--accent-teal); color: #fff; }
+  .badge-burgundy { background: var(--accent-burgundy); color: #fff; }
+  .badge-emerald { background: var(--accent-emerald); color: #fff; }
+
+  .node h2 {
+    margin: 4px 0 8px 0;
+    font-size: 1.3rem;
+    color: var(--primary);
+  }
+
+  .node h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.08rem;
+    color: var(--primary);
+  }
+
+  .arrow-down {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 8px 0;
+    color: var(--accent-gold);
+    font-weight: bold;
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+
+  .arrow-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    background: var(--bg-color);
+    padding: 2px 10px;
+    border-radius: 4px;
+    margin-bottom: 2px;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 20px;
+    width: 100%;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(430px, 1fr));
+    gap: 24px;
+    width: 100%;
+  }
+
+  .artwork-preview {
+    margin-top: 14px;
+    background: #f4f6f7;
+    border: 1px solid #d5d8dc;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .artwork-preview img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.16);
+    display: block;
+    margin: 0 auto 10px auto;
+    background-color: #e5e8e8;
+  }
+
+  .artwork-caption {
+    font-size: 0.85rem;
+    color: var(--text-main);
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .artwork-subcaption {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .hint-box {
+    display: none;
+    background: #eafaf1;
+    border-left: 4px solid #27ae60;
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin-top: 16px;
+    font-size: 0.9rem;
+  }
+
+  @media print {
+    body { background: #ffffff; padding: 0; }
+    .btn-bar { display: none; }
+    .node { box-shadow: none; break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Conceptual Map: The Renaissance to Baroque</h1>
+    <p>ARTS 1301 Art Appreciation | Unit 3: Humanism, Perspective, Religious Reform &amp; Theatrical Grandeur</p>
+  </header>
+
+  <div class="student-meta">
+    <div class="meta-group">
+      <label for="studentName">Student Name:</label>
+      <input type="text" id="studentName" placeholder="Enter your full name">
+    </div>
+    <div class="meta-group">
+      <label for="courseDate">Date:</label>
+      <input type="text" id="courseDate" placeholder="MM/DD/YYYY">
+    </div>
+    <div class="btn-bar">
+      <button type="button" onclick="toggleWordBank()">Toggle Word Bank</button>
+      <button type="button" class="gold-btn" onclick="window.print()">Print / Save PDF</button>
+    </div>
+  </div>
+
+  <div id="wordBank" class="hint-box" style="margin-bottom: 22px;">
+    <strong>Concept Map Word Bank:</strong> rebirth, 1400, 1600, Greek, Humanism, Catholic, frescoes, perspective, 3D, Giotto, Leonardo da Vinci, Michelangelo, mass, depth, expression, Masaccio, Protestant, clothed, texture, symbolism, oil, Jan van Eyck, Ghent Altarpiece, chaotic, Council of Trent, Veronese, 1600s, 1750, motion, emotion, Caravaggio
+  </div>
+
+  <!-- LEVEL 1: ROOT NODE -->
+  <div class="map-section">
+    <div class="node node-root">
+      <span class="badge badge-gold">Central Historical Foundation (c. 1400 to 1600)</span>
+      <h2>The Renaissance: Meaning &ldquo;Rebirth&rdquo;</h2>
+      <p>Spanning roughly from the year <input type="text" class="inline-input" style="width:95px;" placeholder="Start year"> to <input type="text" class="inline-input" style="width:95px;" placeholder="End year">, the Renaissance marked a renewed intellectual and artistic interest in the classical <input type="text" class="inline-input" style="width:120px;" placeholder="Classical tradition"> tradition alongside <input type="text" class="inline-input" style="width:140px;" placeholder="Philosophy">, which placed human reason, observation, and dignity at the center of culture.</p>
+    </div>
+
+    <div class="arrow-down">
+      <span class="arrow-label">Develops across distinct regional movements and sub epochs</span>
+      <span>&#8595;</span>
+    </div>
+
+    <!-- LEVEL 2: ITALIAN RENAISSANCE (EARLY & HIGH RENAISSANCE) -->
+    <div class="node node-burgundy">
+      <div style="text-align:center; margin-bottom: 14px;">
+        <span class="badge badge-burgundy">Sub Epoch 1: Italy &amp; Roman Catholic Beliefs</span>
+        <h2>The Italian Renaissance &amp; High Renaissance</h2>
+        <p>Centered in Italy and deeply shaped by <input type="text" class="inline-input" style="width:140px;" placeholder="Religious faith"> beliefs, artists revived classical antiquity, championed <input type="text" class="inline-input" style="width:120px;" placeholder="Wall medium"> painting, and introduced linear <input type="text" class="inline-input" style="width:130px;" placeholder="Spatial system"> to create realistic <input type="text" class="inline-input" style="width:80px;" placeholder="Dimension"> space, breaking away from the flat 2D art of the Middle Ages.</p>
+      </div>
+
+      <div class="grid-3">
+        <!-- CARD 1: EARLY ITALIAN RENAISSANCE (GIOTTO) -->
+        <div style="background:#fdfefe; padding:16px; border-radius:8px; border:1px solid #e5e7e9;">
+          <span class="badge badge-burgundy">Early Italian Renaissance</span>
+          <h3>Balance of the Real &amp; Ideal</h3>
+          <p>Artists balanced naturalistic human emotion with idealized sacred harmony.</p>
+          <p><strong>Classic Fresco Example:</strong> <em>Lamentation</em> by <input type="text" class="inline-input" style="width:130px;" placeholder="Artist name"></p>
+          <div class="artwork-preview">
+            <img src="https://raw.githubusercontent.com/angelica-martinez/ConceptualMapsArt/main/Images/Lamentation_Giotto.jpg" alt="Lamentation fresco by Giotto in the Scrovegni Chapel">
+            <div class="artwork-caption">Giotto, Lamentation (c. 1305)</div>
+            <div class="artwork-subcaption">Fresco, Scrovegni Chapel, Padua: early three dimensional space and human grief</div>
+          </div>
+        </div>
+
+        <!-- CARD 2: TRANSITION IN ITALY (MASACCIO) -->
+        <div style="background:#fdfefe; padding:16px; border-radius:8px; border:1px solid #e5e7e9;">
+          <span class="badge badge-burgundy">Italian Transition</span>
+          <h3>Mass, Depth &amp; Expression</h3>
+          <p>As Italian Renaissance painting evolved, figures gained physical <input type="text" class="inline-input" style="width:100px;" placeholder="Weight">, spatial <input type="text" class="inline-input" style="width:100px;" placeholder="3D illusion">, and psychological <input type="text" class="inline-input" style="width:120px;" placeholder="Feeling"> through light and shadow.</p>
+          <p><strong>Classic Example:</strong> <em>The Tribute Money</em> by <input type="text" class="inline-input" style="width:130px;" placeholder="Artist name"></p>
+          <div class="artwork-preview">
+            <img src="https://raw.githubusercontent.com/angelica-martinez/ConceptualMapsArt/main/Images/Tribute_Money_Masaccio.jpg" alt="The Tribute Money fresco by Masaccio in the Brancacci Chapel">
+            <div class="artwork-caption">Masaccio, The Tribute Money (c. 1425)</div>
+            <div class="artwork-subcaption">Fresco, Brancacci Chapel, Florence: volumetric mass, atmospheric depth, and linear perspective</div>
+          </div>
+        </div>
+
+        <!-- CARD 3: HIGH RENAISSANCE IN ITALY -->
+        <div style="background:#fdfefe; padding:16px; border-radius:8px; border:1px solid #e5e7e9;">
+          <span class="badge badge-burgundy">High Renaissance in Italy</span>
+          <h3>Perspective, Illusion &amp; Famous Artists</h3>
+          <p>Perspective and optical illusion reached technical perfection. Unlike the anonymous monks and nuns of the Middle Ages, individual artists became celebrated masters, such as <input type="text" class="inline-input" style="width:165px;" placeholder="Master 1"> and <input type="text" class="inline-input" style="width:155px;" placeholder="Master 2">.</p>
+          <div class="artwork-preview">
+            <img src="https://raw.githubusercontent.com/angelica-martinez/ConceptualMapsArt/main/Images/School_of_Athens_Raphael.jpg" alt="The School of Athens fresco by Raphael">
+            <div class="artwork-caption">Raphael, The School of Athens (1509 to 1511)</div>
+            <div class="artwork-subcaption">Fresco, Apostolic Palace, Vatican: classical Greek philosophy united with High Renaissance perspective</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow-down">
+      <span class="arrow-label">Expands northward with new mediums and religious shifts</span>
+      <span>&#8595;</span>
+    </div>
+
+    <!-- LEVEL 3: THE NORTHERN RENAISSANCE -->
+    <div class="node node-emerald">
+      <div style="text-align:center; margin-bottom: 14px;">
+        <span class="badge badge-emerald">Sub Epoch 2: Northern Europe &amp; Emerging Protestant Beliefs</span>
+        <h2>The Northern Renaissance</h2>
+        <p>Moving away from Roman Catholic visual traditions toward <input type="text" class="inline-input" style="width:140px;" placeholder="Religious movement"> beliefs, Northern artists depicted everyday common people who are fully <input type="text" class="inline-input" style="width:110px;" placeholder="Attire"> rather than idealized nudes. Using <input type="text" class="inline-input" style="width:100px;" placeholder="Painting medium"> painting, they rendered hyper realistic <input type="text" class="inline-input" style="width:120px;" placeholder="Surface quality"> so detailed you feel you can touch the fabrics, embedding hidden <input type="text" class="inline-input" style="width:130px;" placeholder="Hidden meanings"> throughout domestic objects.</p>
+      </div>
+
+      <div class="grid-2">
+        <!-- NORTHERN EXAMPLE 1: ARNOLFINI PORTRAIT -->
+        <div style="background:#fdfefe; padding:16px; border-radius:8px; border:1px solid #e5e7e9;">
+          <h3>Oil on Canvas &amp; Wood: Domestic Symbolism</h3>
+          <p><strong>Classic Oil Painting Example:</strong> <em>The Arnolfini Portrait</em> by <input type="text" class="inline-input" style="width:150px;" placeholder="Flemish artist">, showcasing richly textured clothing, luminous oil glazes, and everyday objects packed with symbolic meaning.</p>
+          <div class="artwork-preview">
+            <img src="https://raw.githubusercontent.com/angelica-martinez/ConceptualMapsArt/main/Images/Arnolfini_Portrait_Van_Eyck.jpg" alt="The Arnolfini Portrait by Jan van Eyck">
+            <div class="artwork-caption">Jan van Eyck, The Arnolfini Portrait (1434)</div>
+            <div class="artwork-subcaption">Oil on oak panel: clothed everyday figures, tactile fur and velvet textures, and hidden symbolism</div>
+          </div>
+        </div>
+
+        <!-- NORTHERN EXAMPLE 2: GHENT ALTARPIECE -->
+        <div style="background:#fdfefe; padding:16px; border-radius:8px; border:1px solid #e5e7e9;">
+          <h3>Oil on Wood: Monumental Altarpieces</h3>
+          <p><strong>Popular Northern Altarpiece Example:</strong> <em>The <input type="text" class="inline-input" style="width:165px;" placeholder="Famous altarpiece"></em> (Adoration of the Mystic Lamb), painted in luminous oil on wood panels for church worship.</p>
+          <div class="artwork-preview">
+            <img src="https://raw.githubusercontent.com/angelica-martinez/ConceptualMapsArt/main/Images/Ghent_Altarpiece.jpg" alt="The Ghent Altarpiece by Hubert and Jan van Eyck">
+            <div class="artwork-caption">Hubert and Jan van Eyck, The Ghent Altarpiece (1432)</div>
+            <div class="artwork-subcaption">Oil on wood panels, Saint Bavo Cathedral, Ghent: intricate surface detail and radiant color</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow-down">
+      <span class="arrow-label">Fractures into artistic turmoil, church reform, and regulation</span>
+      <span>&#8595;</span>
+    </div>
+
+    <!-- LEVEL 4: LATE RENAISSANCE, REFORMATION & COUNTER-REFORMATION -->
+    <div class="node node-gold">
+      <div style="text-align:center; margin-bottom: 14px;">
+        <span class="badge badge-gold">Sub Epoch 3: Crisis, Turmoil &amp; Regulation</span>
+        <h2>Late Renaissance, Reformation &amp; Counter Reformation</h2>
+        <p>During the Late Renaissance (Mannerism), harmonious balance gave way to <input type="text" class="inline-input" style="width:120px;" placeholder="Composition style"> compositions reflecting the religious turmoil between Protestants and the Catholic Church. In response, the Catholic <input type="text" class="inline-input" style="width:165px;" placeholder="Church council"> met to strictly regulate how sacred subjects could be displayed in art.</p>
+      </div>
+
+      <div class="grid-2">
+        <div style="background:#fdfefe; padding:16px; border-radius:8px; border:1px solid #e5e7e9;">
+          <h3>Late Renaissance &amp; Religious Regulation</h3>
+          <p>When Paolo Veronese painted a lavish, crowded banquet for his <em>Last Supper</em>, Church inquisitors ordered him to change the title to <em>Feast in the House of Levi</em> to comply with Counter Reformation rules of decorum.</p>
+          <p><strong>Key Concept:</strong> Art was closely policed to ensure theological clarity and prevent secular distractions in sacred scenes.</p>
+        </div>
+        <div class="artwork-preview" style="margin-top:0;">
+          <img src="https://raw.githubusercontent.com/angelica-martinez/ConceptualMapsArt/main/Images/Feast_in_the_House_of_Levi_Veronese.jpg" alt="Feast in the House of Levi (originally Last Supper) by Paolo Veronese">
+          <div class="artwork-caption">Paolo Veronese, Feast in the House of Levi / Last Supper (1573)</div>
+          <div class="artwork-subcaption">Oil on canvas: complex theatrical composition scrutinized by the Counter Reformation</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow-down">
+      <span class="arrow-label">Evolves into theatrical drama, global trade, and sensory power</span>
+      <span>&#8595;</span>
+    </div>
+
+    <!-- LEVEL 5: THE BAROQUE ERA (1600s to 1750) -->
+    <div class="node node-teal">
+      <div style="text-align:center; margin-bottom: 14px;">
+        <span class="badge badge-teal">Subsequent Era: c. 1600s to 1750</span>
+        <h2>The Baroque Period: Motion, Emotion &amp; Grandeur</h2>
+        <p>Following the Renaissance from the <input type="text" class="inline-input" style="width:95px;" placeholder="Start century"> to <input type="text" class="inline-input" style="width:95px;" placeholder="End year">, the Baroque era unfolded amid permanent division between the Roman Catholic Church and Protestants, alongside an age of global exploration, trade, and discovery. Artists created theatrical scenes bursting with dynamic <input type="text" class="inline-input" style="width:110px;" placeholder="Movement">, intense <input type="text" class="inline-input" style="width:110px;" placeholder="Feeling">, dramatic light and shadow, and imperial grandeur.</p>
+      </div>
+
+      <div class="grid-2">
+        <div style="background:#fdfefe; padding:16px; border-radius:8px; border:1px solid #e5e7e9;">
+          <h3>Visualizing Drama &amp; Discovery</h3>
+          <p>Whether serving Catholic Counter Reformation devotion through visceral realism or celebrating Protestant Dutch global trade and wealth, Baroque art pulled the viewer directly into the action.</p>
+          <p><strong>Representative Baroque Example:</strong> <em>The Calling of Saint Matthew</em> by <input type="text" class="inline-input" style="width:140px;" placeholder="Baroque master">, where a theatrical beam of light slices across a dark room to capture a moment of spiritual awakening.</p>
+        </div>
+        <div class="artwork-preview" style="margin-top:0;">
+          <img src="https://raw.githubusercontent.com/angelica-martinez/ConceptualMapsArt/main/Images/Calling_of_Saint_Matthew_Caravaggio.jpg" alt="The Calling of Saint Matthew by Caravaggio">
+          <div class="artwork-caption">Caravaggio, The Calling of Saint Matthew (1599 to 1600)</div>
+          <div class="artwork-subcaption">Oil on canvas, Contarelli Chapel, Rome: theatrical chiaroscuro lighting, high emotion, and dynamic gesture</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleWordBank() {
+    const wb = document.getElementById('wordBank');
+    wb.style.display = (wb.style.display === 'block') ? 'none' : 'block';
+  }
+</script>
+
+</body>
+</html>

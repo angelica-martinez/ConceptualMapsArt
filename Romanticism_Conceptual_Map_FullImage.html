@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art Appreciation Conceptual Map: Romanticism</title>
+<style>
+  :root {
+    --bg-color: #f8f6f0;
+    --card-bg: #ffffff;
+    --primary: #2c3e50;
+    --accent-gold: #b8860b;
+    --accent-gold-light: #fdf8e8;
+    --accent-crimson: #922b21;
+    --accent-crimson-light: #fdedec;
+    --accent-forest: #1e8449;
+    --accent-forest-light: #eafaf1;
+    --accent-navy: #1b4f72;
+    --accent-navy-light: #ebf5fb;
+    --border-color: #d5d8dc;
+    --text-main: #2c3e50;
+    --text-muted: #566573;
+  }
+
+  * {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.5;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  header {
+    background: linear-gradient(135deg, #1b2631, #2c3e50);
+    color: #ffffff;
+    padding: 28px 32px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    border-bottom: 5px solid var(--accent-gold);
+  }
+
+  header h1 {
+    margin: 0 0 8px 0;
+    font-size: 1.9rem;
+    letter-spacing: 0.5px;
+  }
+
+  header p {
+    margin: 0;
+    color: #d5d8dc;
+    font-size: 1rem;
+  }
+
+  .student-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    background: var(--card-bg);
+    padding: 16px 24px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 28px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .meta-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 220px;
+  }
+
+  .meta-group label {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 0.9rem;
+  }
+
+  input[type="text"], textarea, select {
+    border: 1.5px solid #aeb6bf;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.92rem;
+    background-color: #fcfcfc;
+    color: #1b2631;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  input[type="text"]:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.18);
+    background-color: #ffffff;
+  }
+
+  .inline-input {
+    width: 165px;
+    display: inline-block;
+    margin: 2px 4px;
+    font-weight: 600;
+    color: #1a5276;
+  }
+
+  .wide-input {
+    width: 100%;
+    margin-top: 6px;
+  }
+
+  .btn-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.88rem;
+    transition: background 0.2s;
+  }
+
+  button:hover {
+    background-color: #1a252f;
+  }
+
+  button.gold-btn {
+    background-color: var(--accent-gold);
+  }
+
+  button.gold-btn:hover {
+    background-color: #9a7009;
+  }
+
+  .map-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .node {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    width: 100%;
+    position: relative;
+  }
+
+  .node-root {
+    border: 3px solid var(--accent-gold);
+    background: var(--accent-gold-light);
+    text-align: center;
+    max-width: 900px;
+  }
+
+  .node-crimson {
+    border-top: 5px solid var(--accent-crimson);
+  }
+
+  .node-forest {
+    border-top: 5px solid var(--accent-forest);
+  }
+
+  .node-navy {
+    border-top: 5px solid var(--accent-navy);
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 8px;
+  }
+
+  .badge-gold { background: var(--accent-gold); color: #fff; }
+  .badge-crimson { background: var(--accent-crimson); color: #fff; }
+  .badge-forest { background: var(--accent-forest); color: #fff; }
+  .badge-navy { background: var(--accent-navy); color: #fff; }
+
+  .node h2 {
+    margin: 4px 0 8px 0;
+    font-size: 1.3rem;
+    color: var(--primary);
+  }
+
+  .node h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.08rem;
+    color: var(--primary);
+  }
+
+  .arrow-down {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 8px 0;
+    color: var(--accent-gold);
+    font-weight: bold;
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+
+  .arrow-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    background: var(--bg-color);
+    padding: 2px 10px;
+    border-radius: 4px;
+    margin-bottom: 2px;
+  }
+
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+    width: 100%;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    width: 100%;
+  }
+
+  .artwork-preview {
+    margin-top: 14px;
+    background: #f4f6f7;
+    border: 1px solid #d5d8dc;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .artwork-preview img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.16);
+    display: block;
+    margin: 0 auto 10px auto;
+    background-color: #e5e8e8;
+  }
+
+  .artwork-caption {
+    font-size: 0.85rem;
+    color: var(--text-main);
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .artwork-subcaption {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .hint-box {
+    display: none;
+    background: #eafaf1;
+    border-left: 4px solid #27ae60;
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin-top: 16px;
+    font-size: 0.9rem;
+  }
+
+  @media print {
+    body { background: #ffffff; padding: 0; }
+    .btn-bar { display: none; }
+    .node { box-shadow: none; break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Conceptual Map: Romanticism</h1>
+    <p>ARTS 1301 Art Appreciation | Unit 3: Revolution, Nature, Individuality &amp; Social Justice</p>
+  </header>
+
+  <div class="student-meta">
+    <div class="meta-group">
+      <label for="studentName">Student Name:</label>
+      <input type="text" id="studentName" placeholder="Enter your full name">
+    </div>
+    <div class="meta-group">
+      <label for="courseDate">Date:</label>
+      <input type="text" id="courseDate" placeholder="MM/DD/YYYY">
+    </div>
+    <div class="btn-bar">
+      <button type="button" onclick="toggleWordBank()">Toggle Word Bank</button>
+      <button type="button" class="gold-btn" onclick="window.print()">Print / Save PDF</button>
+    </div>
+  </div>
+
+  <div id="wordBank" class="hint-box" style="margin-bottom: 22px;">
+    <strong>Concept Map Word Bank:</strong> 19th, European, American, nature, industrialization, individuality, emotion, movement, drama, class, justice, equality, Eug&egrave;ne Delacroix, Th&eacute;odore G&eacute;ricault, Caspar David Friedrich
+  </div>
+
+  <!-- LEVEL 1: ROOT NODE -->
+  <div class="map-section">
+    <div class="node node-root">
+      <span class="badge badge-gold">Central Historical Foundation (First Half of the 19th Century)</span>
+      <h2>Romanticism: Age of Revolutions &amp; Reaction Against Industrialization</h2>
+      <p>Emerging in the first half of the <input type="text" class="inline-input" style="width:95px;" placeholder="Century"> century amid the political upheaval of the <input type="text" class="inline-input" style="width:125px;" placeholder="Region 1"> and <input type="text" class="inline-input" style="width:125px;" placeholder="Region 2"> revolutions, Romanticism celebrated the raw power and beauty of <input type="text" class="inline-input" style="width:115px;" placeholder="Natural world"> as a direct rejection of rapid <input type="text" class="inline-input" style="width:155px;" placeholder="Economic shift"> and cold rationalism.</p>
+    </div>
+
+    <div class="arrow-down">
+      <span class="arrow-label">Expresses four defining visual and philosophical pillars</span>
+      <span>&#8595;</span>
+    </div>
+
+    <!-- LEVEL 2: CORE CHARACTERISTICS -->
+    <div class="node node-crimson">
+      <div style="text-align:center; margin-bottom: 14px;">
+        <span class="badge badge-crimson">Visual &amp; Emotional Language</span>
+        <h2>Core Characteristics of Romantic Art</h2>
+      </div>
+      <div class="grid-4">
+        <div style="background:#fdfefe; padding:14px; border-radius:8px; border:1px solid #e5e7e9;">
+          <h3>1. Individuality</h3>
+          <p>Champions personal <input type="text" class="inline-input" style="width:135px;" placeholder="Selfhood">, inner imagination, and the subjective human spirit over rigid academic rules.</p>
+        </div>
+        <div style="background:#fdfefe; padding:14px; border-radius:8px; border:1px solid #e5e7e9;">
+          <h3>2. Heightened Emotion</h3>
+          <p>Prioritizes intense <input type="text" class="inline-input" style="width:125px;" placeholder="Feeling">, awe, passion, terror, and psychological depth over calm restraint.</p>
+        </div>
+        <div style="background:#fdfefe; padding:14px; border-radius:8px; border:1px solid #e5e7e9;">
+          <h3>3. Movement &amp; Drama</h3>
+          <p>Uses turbulent diagonal compositions, swirling brushwork, and dramatic light to convey physical <input type="text" class="inline-input" style="width:120px;" placeholder="Action"> and <input type="text" class="inline-input" style="width:110px;" placeholder="Theatricality">.</p>
+        </div>
+        <div style="background:#fdfefe; padding:14px; border-radius:8px; border:1px solid #e5e7e9;">
+          <h3>4. Class, Justice &amp; Equality</h3>
+          <p>Confronts the widening material divide between rich and poor, advocating for social <input type="text" class="inline-input" style="width:110px;" placeholder="Social rank">, human <input type="text" class="inline-input" style="width:110px;" placeholder="Fairness">, and political <input type="text" class="inline-input" style="width:110px;" placeholder="Rights">.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow-down">
+      <span class="arrow-label">Illustrated through three iconic Romantic masterpieces</span>
+      <span>&#8595;</span>
+    </div>
+
+    <!-- LEVEL 3: THREE ICONIC EXAMPLES -->
+    <div class="node node-navy">
+      <div style="text-align:center; margin-bottom: 14px;">
+        <span class="badge badge-navy">Representative Artworks</span>
+        <h2>Romanticism in Action: Revolution, Justice &amp; Sublime Nature</h2>
+      </div>
+
+      <div class="grid-3">
+        <!-- EXAMPLE 1: LIBERTY LEADING THE PEOPLE -->
+        <div style="background:#fdfefe; padding:16px; border-radius:8px; border:1px solid #e5e7e9;">
+          <span class="badge badge-crimson">Revolution &amp; Class Unity</span>
+          <h3><em>Liberty Leading the People</em> (1830)</h3>
+          <p><strong>Artist:</strong> <input type="text" class="inline-input" style="width:165px;" placeholder="French Romantic artist"></p>
+          <p>People from different social classes unite behind the allegorical figure of Liberty during the French July Revolution, capturing dynamic movement, smoke, and revolutionary passion.</p>
+          <div class="artwork-preview">
+            <img src="https://raw.githubusercontent.com/angelica-martinez/ConceptualMapsArt/main/Images/Liberty_Leading_the_People_Delacroix.jpg" alt="Liberty Leading the People by Eugene Delacroix">
+            <div class="artwork-caption">Eug&egrave;ne Delacroix, <em>Liberty Leading the People</em> (1830)</div>
+            <div class="artwork-subcaption">Oil on canvas, Louvre: class struggle, equality, and dramatic revolutionary energy</div>
+          </div>
+        </div>
+
+        <!-- EXAMPLE 2: THE RAFT OF THE MEDUSA -->
+        <div style="background:#fdfefe; padding:16px; border-radius:8px; border:1px solid #e5e7e9;">
+          <span class="badge badge-navy">Justice, Equality &amp; Human Suffering</span>
+          <h3><em>The Raft of the Medusa</em> (1818 to 1819)</h3>
+          <p><strong>Artist:</strong> <input type="text" class="inline-input" style="width:165px;" placeholder="French Romantic artist"></p>
+          <p>Exposes government negligence and class injustice after a French naval shipwreck, using turbulent ocean waves, diagonal movement, and raw desperation to demand moral accountability.</p>
+          <div class="artwork-preview">
+            <img src="https://raw.githubusercontent.com/angelica-martinez/ConceptualMapsArt/main/Images/Raft_of_the_Medusa_Gericault.jpg" alt="The Raft of the Medusa by Theodore Gericault">
+            <div class="artwork-caption">Th&eacute;odore G&eacute;ricault, <em>The Raft of the Medusa</em> (1818 to 1819)</div>
+            <div class="artwork-subcaption">Oil on canvas, Louvre: heightened emotion, social justice critique, and dramatic turmoil</div>
+          </div>
+        </div>
+
+        <!-- EXAMPLE 3: WANDERER ABOVE THE SEA OF FOG -->
+        <div style="background:#fdfefe; padding:16px; border-radius:8px; border:1px solid #e5e7e9;">
+          <span class="badge badge-forest">Individuality &amp; Power of Nature</span>
+          <h3><em>Wanderer above the Sea of Fog</em> (c. 1818)</h3>
+          <p><strong>Artist:</strong> <input type="text" class="inline-input" style="width:185px;" placeholder="German Romantic artist"></p>
+          <p>A solitary individual stands atop a rocky peak gazing into vast, untamed mountains and mist, rejecting industrial factories to contemplate the sublime power and beauty of nature.</p>
+          <div class="artwork-preview">
+            <img src="https://raw.githubusercontent.com/angelica-martinez/ConceptualMapsArt/main/Images/Wanderer_Sea_of_Fog_Friedrich.jpg" alt="Wanderer above the Sea of Fog by Caspar David Friedrich">
+            <div class="artwork-caption">Caspar David Friedrich, <em>Wanderer above the Sea of Fog</em> (c. 1818)</div>
+            <div class="artwork-subcaption">Oil on canvas, Kunsthalle Hamburg: solitary individuality and awe before untamed nature</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleWordBank() {
+    const wb = document.getElementById('wordBank');
+    wb.style.display = (wb.style.display === 'block') ? 'none' : 'block';
+  }
+</script>
+
+</body>
+</html>
